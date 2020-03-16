@@ -1,3 +1,5 @@
+[toc]
+
 # 비즈니스 스타일 꾸미기
 
 ## 1. 레이아웃 기본 구조 생성
@@ -166,6 +168,8 @@ body{
 }
 ```
 
+- 맞춰준다.
+
 ### 4) 공지사항
 
 - ul, li a, li a:hover를 사용하였다.
@@ -237,6 +241,170 @@ body{
     margin: 0;
     color: #666666;
     font-size: 14px;
+}
+```
+
+![image](https://user-images.githubusercontent.com/26649731/76724463-5fe3c100-678e-11ea-88d0-d842540e8ffa.png)
+
+## 3. 레이아웃 조정
+
+### 1) 네비게이션 매뉴 양쪽으로 분리하기
+
+- 50:50으로 맞춰져있는 박스 두개를 분리하여 준다.
+
+```css
+/* ####### 768px 이상 ####### */
+@media (min-width:768px){
+    /* BOX1과 BOX2를 가로 정렬하는 설정 */
+    .boxA::after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+    .box1{
+        float: left;
+        width: auto;
+    }
+    .box2{
+        float: right;
+        width: auto;
+    }
+}
+```
+
+### 2) 헤더 그림을 화면에 꽉 차게 출력
+
+```css
+/* 박스의 왼쪽, 오른쪽 */
+.boxA, .box4, .box5{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+```
+
+### 3) 푸터를 바의 형태로 수정 및 요소 간격조정
+
+```css
+/* BOX5를 바 형태로 디자인 */
+.box5{
+    background-color: #dddddd;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+/* 박스의 위아래 */
+.boxA {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+.box4{
+    padding : 20px 0;
+}
+
+/* boxA와 box4의 배경 */
+.boxA{
+    background-color: #333333;
+}
+.box4{
+    background-color: #e8e8c4;
+}
+```
+
+## 4. 반응형 웹 디자인과 관련된 조정
+
+- 안드로이드, 아이폰 등 작은 UI를 가지는 곳에서의 설정을 변경해보자
+- 큰 화면에서의 설정을 변경해보자
+
+### 1) 네비게이션 디자인 간소화
+
+- 네비게이션이 깨지거나 두줄이 되지 않도록 폰트 크기나, padding값을 줄여준다.
+
+```css
+/* ####### 599px 이하 ####### */
+@media (max-width:599px){
+    .site h1{
+        margin: 0;
+        font-size: 20px;
+    }
+    .menu li a{
+        padding: 10px 7px;
+        font-size: 11px;
+    }
+}
+```
+
+### 2) 날짜 아래에 글자가 파고들지 않게 수정
+
+- 한쪽 박스의 너비를 픽셀로 고정하는 방법을 사용할 것이다.
+
+```css
+.news a:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.news time{
+    float: left;
+    width: 60px;
+}
+.news .text{
+    float: none;
+    width: auto;
+    margin-left: 60px;
+}
+```
+
+### 3) 레이아웃 전체 너비 고정
+
+- 일정 크기 이상이 될 경우 레이아웃의 크기를 고정하여 정적 이미지 파일이 깨지지 않도록 한다.
+
+```css
+@media (min-width:1190px){
+
+    /* 전체 너비를 고정 */
+    .box3, .box4{
+        width: 1140px;
+        margin: 0 auto;
+    }
+
+    /* BOX A 아래에 테두리 삽입 */
+    .boxA {
+        margin-bottom: 20px;
+        border-bottom: solid 1px #dddddd;
+    }
+}
+```
+
+### 4) 헤더와 푸터의 내용물을 다른 요소에 맞추기
+
+- 제목을 깔끔하게 보일 수 있도록 한다.
+
+- boxA-inner, box5-inner 태그를 생성한다.
+
+```html
+<div class="boxA">
+        <div class="boxA-inner">
+            <div class="box1">
+                ...
+```
+
+```html
+<div class="box5">
+        <div class="box5-inner">
+            <div class="copyright">
+                ...
+```
+
+- 맞춰준다.
+
+```css
+@media (min-width:1190px){
+
+    /* 전체 너비를 고정 */
+    .box3, .box4, .boxA-inner, .box5-inner{
+        width: 1140px;
+        margin: 0 auto;
+    }
+    ...
 }
 ```
 
