@@ -6,17 +6,21 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
-    <div class="boxA">
-        <div class="boxA-inner">
+    <header class="header">
+        <div class="header-inner">
             <div class="box1">
-                <div class="site">
+                <div class="header-site">
                     <h1><a href="#"><img src="img/06/logo-large.png" alt="Business"></a></h1>
                 </div>
             </div>
             <div class="box2">
-                <nav class="menu">
+                <button type="button" id="header-menubtn">
+                    <i class="fa fa-bars"></i><span>MENU</span>
+                </button>
+                <nav class="header-nav" id="menu">
                     <ul>
                         <li><a href="#">메인</a></li>
                         <li><a href="#">연혁</a></li>
@@ -27,7 +31,7 @@
                 </nav>
             </div>
         </div>
-    </div>
+    </header>
     <div class="box3">
         <div class="top">
             <img src="img/06/header.jpg" alt="" class="topimg">
@@ -88,12 +92,20 @@
             </div>
         </div>
     </div>
-    <div class="box5">
+    <footer class="footer">
         <div class="box5-inner">
             <div class="copyright">
                 Copyright &copy; Business CSS
             </div>
         </div>
-    </div>
+    </footer>
+    <script>
+        $(function(){
+            $("#header-menubtn").click(function(){
+                $("#menu").slideToggle();
+            });
+                        
+        });
+    </script>
 </body>
 </html>

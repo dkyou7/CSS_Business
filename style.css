@@ -6,46 +6,20 @@ body{
 }
 
 /* 사이트 이름 */
-.site h1{
+.header-site h1{
     margin: 0;
     font-size: 30px;
 }
-.site h1 a{
+.header-site h1 a{
     color: #000000;
     text-decoration: none;
 }
-.site img{
+.header-site img{
     border: none;
     width: 250px;
     height: 33px;
 }
 
-/* 네비게이션 */
-.menu ul{
-    margin: 0;
-    padding:0;
-    list-style: none;
-}
-.menu li a{
-    display: block;
-    padding: 10px 15px;
-    color: #000000;
-    text-decoration: none;
-    font-size: 14px;
-    
-}
-.menu li a:hover{
-    background-color: #eeeeee;
-}
-.menu ul:after{
-    content:'';
-    display: block;
-    clear: both;
-}
-.menu li{
-    float: left;
-    width: auto;
-}
 
 /* 헤더 그림 */
 .topimg{
@@ -162,21 +136,21 @@ body{
     font-size: 14px;
 }
 
-/* BOX5를 바 형태로 디자인 */
-.box5{
+/* footer를 바 형태로 디자인 */
+.footer{
     background-color: #dddddd;
     padding-top: 15px;
     padding-bottom: 15px;
 }
 
 /* 박스의 왼쪽, 오른쪽 */
-.boxA, .box4, .box5, .box6{
+.header, .box4, .footer, .box6{
     padding-left: 15px;
     padding-right: 15px;
 }
 
 /* 박스의 위아래 */
-.boxA {
+.header {
     padding-top: 20px;
     padding-bottom: 10px;
 }
@@ -253,11 +227,11 @@ body{
 }
 /* ####### 599px 이하 ####### */
 @media (max-width:599px){
-    .site h1{
+    .header-site h1{
         margin: 0;
         font-size: 20px;
     }
-    .menu li a{
+    .header-nav li a{
         padding: 10px 7px;
         font-size: 11px;
     }
@@ -268,10 +242,96 @@ body{
     }
 }
 
+/* ####### 767px 이하 ####### */
+@media (max-width:767px){
+
+    /* 토글 버튼 */
+    #header-menubtn{
+        padding: 6px 12px;
+        border: solid 1px #aaaaaa;
+        border-radius: 5px;
+        background-color: #ffffff;
+        position: absolute;
+        top: 20px;
+        right: 15px;
+        cursor: pointer;
+    }
+    #header-menubtn:hover{
+        background-color: #dddddd;
+    }
+    #header-menubtn:focus{
+        outline: none;
+    }
+    #header-menubtn i{
+        color: #888888;
+        font-size: 18px;
+    }
+    #header-menubtn span{
+        display: inline-block;
+        text-indent: -9999px;
+    }
+    #header-nav {
+        display: none;
+    }
+    .header-nav ul{
+        margin:0;
+        padding:0;
+        list-style:none;
+    }
+    .header-nav li a{
+        display: block;
+        padding:5px;
+        color: #000000;
+        font-size: 14px;
+        text-decoration: none;
+    }
+    .header-nav li a:hover{
+        background-color: #eeeeee;
+    }
+}
+
 /* ####### 768px 이상 ####### */
 @media (min-width:768px){
+
+    /* 토글 버튼 */
+    #header-menubtn{
+        display: none;
+    }
+
+    /* 네비게이션 */
+    #header-nav{
+        display: block !important;
+    }
+
+    /* 네비게이션 */
+    .header-nav ul{
+        margin: 0;
+        padding:0;
+        list-style: none;
+    }
+    .header-nav li a{
+        display: block;
+        padding: 10px 15px;
+        color: #000000;
+        text-decoration: none;
+        font-size: 14px;
+        
+    }
+    .header-nav li a:hover{
+        background-color: #eeeeee;
+    }
+    .header-nav ul:after{
+        content:'';
+        display: block;
+        clear: both;
+    }
+    .header-nav li{
+        float: left;
+        width: auto;
+    }
+
     /* BOX1과 BOX2를 가로 정렬하는 설정 */
-    .boxA::after{
+    .header::after{
         content: '';
         display: block;
         clear: both;
@@ -328,13 +388,13 @@ body{
 @media (min-width:1190px){
 
     /* 전체 너비를 고정 */
-    .box3, .box4, .boxA-inner, .box5-inner, .box6{
+    .box3, .box4, .header-inner, .footer-inner, .box6{
         width: 1140px;
         margin: 0 auto;
     }
 
     /* BOX A 아래에 테두리 삽입 */
-    .boxA {
+    .header {
         margin-bottom: 20px;
         border-bottom: solid 1px #dddddd;
     }
