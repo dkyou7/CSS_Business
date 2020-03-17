@@ -408,3 +408,42 @@ body{
 }
 ```
 
+![image](https://user-images.githubusercontent.com/26649731/76734123-98db6000-67a5-11ea-8d97-2faa0a49b513.png)
+
+## 5. 요소의 추가와 수정
+
+### 1) 사이트 이름을 그림으로 수정
+
+- 그림의 화질이 좋지 않을 때가 있다. 더 큰 그림 그림*4 크기를 준비하고 1/4로 줄여 해상도를 높이자.
+
+### 2) 말풍선 형태의 추가 설명
+
+- css arrow please 사이트를 이용하여 만든다.
+
+### 3) 헤더 그림에 캐치 카피 올리기
+
+```html
+<div class="box3">
+    <div class="top">
+        <img src="img/06/header.jpg" alt="" class="topimg">
+        <p class="catch">비즈니스 스타일의 css를 지향합니다.</p>
+    </div>
+</div>
+```
+
+```css
+/* 캐치 카피 */
+.catch{
+	...
+    position: absolute;
+    bottom: 7%;
+    left: 3%;
+    ...
+}
+.top{
+    position: relative;
+}
+```
+
+- 부모는 relative, 자식은 absolute 로 지정하여 표현하자.
+
